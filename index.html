@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACTIBOK — Tecnología al servicio de tus finanzas</title>
+  <meta name="description" content="ACTIBOK ofrece soluciones contables, tributarias, financieras y tecnológicas para empresas en El Salvador. Contabilidad, auditoría, consultoría, cumplimiento y más." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --azul:       #0D2B4E;
+      --azul-medio: #1F4E79;
+      --verde:      #1DB97A;
+      --verde-claro:#E1F5EE;
+      --gris-bg:    #F7F9FC;
+      --gris-card:  #FFFFFF;
+      --texto:      #1A1A2E;
+      --texto-sec:  #5A6A7E;
+      --borde:      #DDE3ED;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--texto);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    /* ── NAVBAR ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--azul);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 3px;
+      text-decoration: none;
+      text-shadow: 0 0 18px rgba(29,185,122,0.35);
+    }
+    .logo span { color: var(--verde); }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--verde); }
+    .nav-cta {
+      background: var(--verde);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 500 !important;
+    }
+    .nav-cta:hover { background: #17a36a !important; color: #fff !important; }
+
+    /* hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: 0.3s; }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--azul);
+      padding: 1rem 1.5rem 1.5rem;
+      gap: 1rem;
+    }
+    .mobile-menu a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 16px;
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--azul) 0%, #163D6E 60%, #0D2B4E 100%);
+      color: #fff;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(29,185,122,0.12) 0%, transparent 60%);
+    }
+    .hero-inner { position: relative; max-width: 680px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(29,185,122,0.15);
+      border: 1px solid rgba(29,185,122,0.35);
+      color: var(--verde);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(22px, 4vw, 38px);
+      font-weight: 900;
+      line-height: 1.25;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 span { color: var(--verde); }
+    .hero p {
+      font-size: 17px;
+      opacity: 0.8;
+      margin-bottom: 2.25rem;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--verde);
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #17a36a; transform: translateY(-1px); }
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.4);
+      color: #fff;
+      padding: 0.8rem 2rem;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--verde); background: rgba(29,185,122,0.08); }
+
+    /* hero stats */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat strong { display: block; font-size: 26px; font-weight: 700; color: var(--verde); }
+    .hero-stat span { font-size: 13px; opacity: 0.7; }
+
+    /* ── SECTION COMMONS ── */
+    section { padding: 4.5rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .section-label::before {
+      content: '';
+      width: 32px;
+      height: 3px;
+      background: var(--verde);
+      border-radius: 2px;
+      display: inline-block;
+    }
+    .section-label span {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--verde);
+    }
+    .section-title {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 700;
+      color: var(--azul);
+      margin-bottom: 0.6rem;
+    }
+    .section-sub {
+      font-size: 16px;
+      color: var(--texto-sec);
+      max-width: 520px;
+    }
+
+    /* ── SERVICIOS ── */
+    #servicios { background: var(--gris-bg); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .service-card {
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(13,43,78,0.1);
+      border-color: var(--verde);
+    }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--verde-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 22px;
+    }
+    .service-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--azul);
+      margin-bottom: 0.4rem;
+    }
+    .service-card p {
+      font-size: 13px;
+      color: var(--texto-sec);
+      line-height: 1.55;
+    }
+
+    /* ── NOSOTROS ── */
+    #nosotros { background: #fff; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .about-text p {
+      font-size: 15px;
+      color: var(--texto-sec);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-values {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .value-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.1rem 1.25rem;
+      background: var(--gris-bg);
+      border-radius: 10px;
+      border-left: 3px solid var(--verde);
+    }
+    .value-icon { font-size: 22px; flex-shrink: 0; }
+    .value-item h4 { font-size: 14px; font-weight: 600; color: var(--azul); margin-bottom: 0.2rem; }
+    .value-item p { font-size: 13px; color: var(--texto-sec); }
+
+    /* ── TECNOLOGÍA ── */
+    #tecnologia {
+      background: var(--azul);
+      color: #fff;
+    }
+    #tecnologia .section-title { color: #fff; }
+    #tecnologia .section-sub { color: rgba(255,255,255,0.7); }
+    #tecnologia .section-label span { color: var(--verde); }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+    .tech-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .tech-card:hover {
+      background: rgba(29,185,122,0.1);
+      border-color: rgba(29,185,122,0.35);
+    }
+    .tech-card-icon { font-size: 28px; margin-bottom: 0.9rem; }
+    .tech-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 0.4rem; color: #fff; }
+    .tech-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.55; }
+
+    /* ── CONTACTO ── */
+    #contacto { background: var(--gris-bg); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 2rem; } }
+    .contact-info h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--azul);
+      margin-bottom: 1.25rem;
+    }
+    .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+    .contact-item-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--verde-claro);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      color: #0F6E56;
+    }
+    .contact-item-text strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--texto-sec);
+      margin-bottom: 1px;
+    }
+    .contact-item-text span {
+      font-size: 14px;
+      color: var(--texto);
+      font-weight: 500;
+    }
+    .contact-item-text a {
+      font-size: 14px;
+      color: var(--azul-medio);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .contact-item-text a:hover { color: var(--verde); }
+
+    /* contact form */
+    .contact-form-wrap {
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      padding: 2rem;
+    }
+    .contact-form-wrap h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--azul);
+      margin-bottom: 1.25rem;
+    }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--texto-sec);
+      margin-bottom: 0.4rem;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      border: 1.5px solid var(--borde);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--texto);
+      background: #fff;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--verde); }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+    .btn-submit {
+      width: 100%;
+      background: var(--verde);
+      color: #fff;
+      border: none;
+      padding: 0.85rem;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover { background: #17a36a; }
+    .form-success {
+      display: none;
+      background: var(--verde-claro);
+      border: 1px solid var(--verde);
+      color: #0F6E56;
+      border-radius: 8px;
+      padding: 1rem;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--azul);
+      color: rgba(255,255,255,0.65);
+      padding: 2.5rem 1.5rem;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 2px;
+      text-decoration: none;
+    }
+    .footer-logo span { color: var(--verde); }
+    footer p { font-size: 13px; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--verde); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 1.75rem;
+      right: 1.75rem;
+      background: #25D366;
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(37,211,102,0.45);
+      z-index: 999;
+      transition: transform 0.2s;
+    }
+    .whatsapp-float:hover { transform: scale(1.08); }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <nav>
+    <a href="#" class="logo">ACTI<span>BOK</span></a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#tecnologia">Tecnología</a></li>
+      <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()" aria-label="Menú" role="button">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+    <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
+    <a href="#tecnologia" onclick="toggleMenu()">Tecnología</a>
+    <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">San Salvador, El Salvador</div>
+    <h1>Tecnología al servicio<br>de tus <span>finanzas</span></h1>
+    <p>Soluciones contables, tributarias y financieras impulsadas por inteligencia artificial para empresas que buscan crecer.</p>
+    <div class="hero-btns">
+      <a href="#contacto" class="btn-primary">Solicitar información</a>
+      <a href="#servicios" class="btn-outline">Conocer servicios</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>10+</strong><span>Años de experiencia</span></div>
+      <div class="hero-stat"><strong>30+</strong><span>Clientes activos</span></div>
+      <div class="hero-stat"><strong>9</strong><span>Servicios especializados</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-label"><span>Lo que hacemos</span></div>
+    <h2 class="section-title">Nuestros servicios</h2>
+    <p class="section-sub">Soluciones integrales para la gestión financiera y tributaria de tu empresa.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">📒</div>
+        <h3>Contabilidad</h3>
+        <p>Registro y gestión contable precisa y oportuna, con reportes que te dan visibilidad total de tu empresa.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧾</div>
+        <h3>Tributario / Impuestos</h3>
+        <p>Cumplimiento fiscal ante el Ministerio de Hacienda, declaraciones de IVA, Renta y asesoría en optimización tributaria.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Auditoría</h3>
+        <p>Revisión independiente y objetiva de tus estados financieros, procesos y controles internos.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📈</div>
+        <h3>Consultoría</h3>
+        <p>Estrategia financiera personalizada para mejorar la rentabilidad y eficiencia de tu negocio.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>Asesoría Financiera</h3>
+        <p>Orientación experta para la toma de decisiones financieras, inversiones y planificación económica.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🛡️</div>
+        <h3>Control Interno</h3>
+        <p>Diseño e implementación de procesos y controles que protegen los activos y la integridad operativa.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚖️</div>
+        <h3>Cumplimiento (Compliance)</h3>
+        <p>Aseguramos que tu empresa cumpla con todas las normativas legales, regulatorias y sectoriales vigentes.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Gestión de Riesgos</h3>
+        <p>Identificación, evaluación y mitigación de riesgos financieros, operacionales y regulatorios.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>Soluciones Tecnológicas</h3>
+        <p>Automatización de procesos contables y financieros mediante inteligencia artificial y bots inteligentes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="container">
+    <div class="section-label"><span>Quiénes somos</span></div>
+    <h2 class="section-title">Experiencia + Tecnología</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>En <strong>ACTIBOK</strong> — Activo Financiero Bot — combinamos más de 10 años de experiencia en contabilidad, auditoría y finanzas con soluciones tecnológicas de vanguardia para transformar la gestión financiera de las empresas en El Salvador.</p>
+        <p>Nuestro nombre refleja nuestra esencia: somos expertos financieros que aprovechan la automatización e inteligencia artificial para ofrecer servicios más rápidos, precisos y accesibles para nuestros clientes.</p>
+        <p>Dirigidos por <strong>profesionales contables especializados</strong>, nuestro equipo entiende las necesidades reales de las empresas salvadoreñas y trabaja de cerca para brindar resultados medibles.</p>
+      </div>
+      <div class="about-values">
+        <div class="value-item">
+          <div class="value-icon">✅</div>
+          <div>
+            <h4>Precisión y confiabilidad</h4>
+            <p>Cada número importa. Trabajamos con rigor para que tu información financiera sea siempre exacta.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">⚡</div>
+          <div>
+            <h4>Eficiencia tecnológica</h4>
+            <p>Automatizamos procesos repetitivos para que te enfoques en lo que importa: tu negocio.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🔐</div>
+          <div>
+            <h4>Confidencialidad</h4>
+            <p>Tu información financiera está protegida con los más altos estándares de seguridad y discreción.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">🌱</div>
+          <div>
+            <h4>Compromiso con tu crecimiento</h4>
+            <p>No somos solo tus contadores, somos socios estratégicos comprometidos con el éxito de tu empresa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECNOLOGÍA -->
+<section id="tecnologia">
+  <div class="container">
+    <div class="section-label"><span>Innovación</span></div>
+    <h2 class="section-title">Tecnología financiera inteligente</h2>
+    <p class="section-sub">Somos pioneros en El Salvador en integrar inteligencia artificial a la gestión contable y tributaria.</p>
+    <div class="tech-grid">
+      <div class="tech-card">
+        <div class="tech-card-icon">📱</div>
+        <h3>Bot contable por WhatsApp</h3>
+        <p>Envía tus facturas y documentos tributarios por WhatsApp y nuestro bot los procesa, clasifica y almacena automáticamente.</p>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-icon">🧠</div>
+        <h3>OCR con Inteligencia Artificial</h3>
+        <p>Extraemos datos de documentos automáticamente con IA: proveedor, monto, fecha y número de documento sin digitación manual.</p>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-icon">☁️</div>
+        <h3>Almacenamiento en la nube</h3>
+        <p>Todos tus documentos organizados por cliente, año y mes en la nube, accesibles en cualquier momento y desde cualquier lugar.</p>
+      </div>
+      <div class="tech-card">
+        <div class="tech-card-icon">📋</div>
+        <h3>Reportes automáticos en Excel</h3>
+        <p>Generamos reportes detallados de compras, pagos y documentos en Excel con un solo click, listos para declaraciones fiscales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="section-label"><span>Escríbenos</span></div>
+    <h2 class="section-title">Contáctanos</h2>
+    <p class="section-sub">Estamos listos para ayudarte a optimizar la gestión financiera de tu empresa.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Información de contacto</h3>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">📞</div>
+            <div class="contact-item-text">
+              <strong>Teléfono / WhatsApp</strong>
+              <a href="tel:+50373082720">+503 7308 2720</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div class="contact-item-text">
+              <strong>Correo electrónico</strong>
+              <a href="mailto:info@actibok.com">info@actibok.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">📍</div>
+            <div class="contact-item-text">
+              <strong>Ubicación</strong>
+              <span>San Salvador, El Salvador</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🕐</div>
+            <div class="contact-item-text">
+              <strong>Horario de atención</strong>
+              <span>Lunes a Viernes, 8:00 am – 5:00 pm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <h3>Envíanos un mensaje</h3>
+        <form id="contactForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre completo *</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+            </div>
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Nombre de tu empresa" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Correo electrónico *</label>
+              <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+503 0000 0000" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="servicio">Servicio de interés</label>
+            <select id="servicio" name="servicio">
+              <option value="">Selecciona un servicio...</option>
+              <option>Contabilidad</option>
+              <option>Tributario / Impuestos</option>
+              <option>Auditoría</option>
+              <option>Consultoría</option>
+              <option>Asesoría Financiera</option>
+              <option>Control Interno</option>
+              <option>Cumplimiento (Compliance)</option>
+              <option>Gestión de Riesgos</option>
+              <option>Soluciones Tecnológicas</option>
+              <option>Otro / Varios servicios</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu empresa y qué necesitas..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Enviar mensaje</button>
+          <div class="form-success" id="formSuccess">
+            ✅ ¡Gracias por contactarnos! Te responderemos en menos de 24 horas.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="footer-logo">ACTI<span>BOK</span></a>
+    <p>© 2026 ACTIBOK · San Salvador, El Salvador · info@actibok.com</p>
+    <div class="footer-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/50373082720?text=Hola,%20me%20interesa%20conocer%20los%20servicios%20de%20ACTIBOK"
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  function submitForm(e) {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const servicio = document.getElementById('servicio').value;
+    const mensaje = document.getElementById('mensaje').value;
+    const subject = encodeURIComponent(`Consulta desde actibok.com${servicio ? ' - ' + servicio : ''}`);
+    const body = encodeURIComponent(`Nombre: ${nombre}\nCorreo: ${email}\nServicio: ${servicio || 'No especificado'}\n\nMensaje:\n${mensaje}`);
+    window.location.href = `mailto:info@actibok.com?subject=${subject}&body=${body}`;
+    document.getElementById('formSuccess').style.display = 'block';
+    e.target.reset();
+  }
+</script>
+
+</body>
+</html>
