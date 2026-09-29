@@ -272,6 +272,109 @@
       line-height: 1.55;
     }
 
+    /* ── PRODUCTOS ── */
+    #productos { background: #fff; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .pricing-card {
+      background: var(--gris-bg);
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      padding: 2rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(13,43,78,0.1);
+      border-color: var(--verde);
+    }
+    .pricing-card.featured { background: var(--azul); border-color: var(--azul); }
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      right: 1.5rem;
+      background: var(--verde);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+    }
+    .pricing-card h3 { font-size: 17px; font-weight: 700; color: var(--azul); margin-bottom: 0.3rem; }
+    .pricing-card.featured h3 { color: #fff; }
+    .pricing-tagline { font-size: 13px; color: var(--texto-sec); margin-bottom: 1.25rem; }
+    .pricing-card.featured .pricing-tagline { color: rgba(255,255,255,0.7); }
+    .pricing-price { display: flex; align-items: baseline; gap: 0.3rem; margin-bottom: 1.5rem; }
+    .pricing-price strong { font-size: 34px; font-weight: 900; color: var(--azul); font-family: 'Orbitron', sans-serif; }
+    .pricing-card.featured .pricing-price strong { color: var(--verde); }
+    .pricing-price span { font-size: 13px; color: var(--texto-sec); }
+    .pricing-card.featured .pricing-price span { color: rgba(255,255,255,0.6); }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 1.75rem; flex-grow: 1; }
+    .pricing-features li { font-size: 13.5px; color: var(--texto-sec); padding-left: 1.4rem; position: relative; line-height: 1.5; }
+    .pricing-card.featured .pricing-features li { color: rgba(255,255,255,0.8); }
+    .pricing-features li::before { content: '✓'; position: absolute; left: 0; color: var(--verde); font-weight: 700; }
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      background: var(--verde);
+      color: #fff;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .pricing-cta:hover { background: #17a36a; }
+    .pricing-note { font-size: 12.5px; color: var(--texto-sec); text-align: center; margin-top: 1.5rem; }
+
+    .modules-wrap {
+      margin-top: 3rem;
+      background: var(--gris-bg);
+      border: 1px solid var(--borde);
+      border-radius: 14px;
+      padding: 1.75rem;
+    }
+    .modules-wrap h3 { font-size: 16px; font-weight: 600; color: var(--azul); margin-bottom: 0.25rem; }
+    .modules-sub { font-size: 13px; color: var(--texto-sec); margin-bottom: 1.25rem; }
+    .modules-table { width: 100%; border-collapse: collapse; }
+    .modules-table th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--texto-sec);
+      padding: 0.5rem 0.75rem;
+      border-bottom: 2px solid var(--borde);
+    }
+    .modules-table td {
+      padding: 0.85rem 0.75rem;
+      border-bottom: 1px solid var(--borde);
+      font-size: 13.5px;
+      vertical-align: top;
+    }
+    .modules-table tr:last-child td { border-bottom: none; }
+    .modules-table td.module-name { font-weight: 600; color: var(--azul); white-space: nowrap; }
+    .modules-table td.module-price { text-align: right; font-weight: 700; color: var(--verde); white-space: nowrap; }
+    .modules-table td.module-desc { color: var(--texto-sec); }
+    @media (max-width: 640px) {
+      .modules-table thead { display: none; }
+      .modules-table, .modules-table tbody, .modules-table tr, .modules-table td { display: block; width: 100%; }
+      .modules-table tr { padding: 0.75rem 0; border-bottom: 1px solid var(--borde); }
+      .modules-table td { border: none; padding: 0.15rem 0; }
+      .modules-table td.module-price { text-align: left; }
+      .modules-table td.module-price::before { content: 'Precio mensual + IVA: '; font-weight: 400; color: var(--texto-sec); }
+    }
+
     /* ── NOSOTROS ── */
     #nosotros { background: #fff; }
     .about-grid {
@@ -527,6 +630,7 @@
     <a href="#" class="logo">ACTI<span>BOK</span></a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#productos">Productos</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#tecnologia">Tecnología</a></li>
       <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
@@ -537,6 +641,7 @@
   </nav>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#servicios" onclick="toggleMenu()">Servicios</a>
+    <a href="#productos" onclick="toggleMenu()">Productos</a>
     <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
     <a href="#tecnologia" onclick="toggleMenu()">Tecnología</a>
     <a href="#contacto" onclick="toggleMenu()">Contacto</a>
@@ -613,6 +718,108 @@
         <h3>Soluciones Tecnológicas</h3>
         <p>Automatización de procesos contables y financieros mediante inteligencia artificial y bots inteligentes.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos">
+  <div class="container">
+    <div class="section-label"><span>Nuestro software</span></div>
+    <h2 class="section-title">Planes y precios</h2>
+    <p class="section-sub">Nuestro sistema contable en la nube, con captura automática de DTE y reportes en tiempo real. Elige un plan o arma tu propio combo de módulos.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Plan Tributario</h3>
+        <p class="pricing-tagline">Para mantener tu cumplimiento fiscal al día.</p>
+        <div class="pricing-price"><strong>$75</strong><span>/mes + IVA</span></div>
+        <ul class="pricing-features">
+          <li>Importación de DTE desde correo, JSON o papel físico</li>
+          <li>Facturador de Documentos Tributarios Electrónicos</li>
+          <li>Libros y anexos tributarios automáticos</li>
+          <li>Archivo documental (Drive)</li>
+        </ul>
+        <a href="#contacto" class="pricing-cta">Solicitar este plan</a>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Plan Solo Contabilidad</h3>
+        <p class="pricing-tagline">El sistema contable completo para tu empresa.</p>
+        <div class="pricing-price"><strong>$85</strong><span>/mes + IVA</span></div>
+        <ul class="pricing-features">
+          <li>Sistema contable completo con captura de DTE y partidas</li>
+          <li>Elaboración automatizada de estados financieros y libros</li>
+          <li>Catálogo: plan de cuentas, proveedores, clientes, accionistas</li>
+          <li>Archivo documental (Drive)</li>
+        </ul>
+        <a href="#contacto" class="pricing-cta">Solicitar este plan</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Mejor valor</div>
+        <h3>Plan Full · ERP Completo</h3>
+        <p class="pricing-tagline">Todos los módulos, sin límites por área.</p>
+        <div class="pricing-price"><strong>$125</strong><span>/mes + IVA</span></div>
+        <ul class="pricing-features">
+          <li>Contabilidad, Facturador, Obligaciones, Tesorería, Planillas, Archivo documental y Proyectos</li>
+          <li>Hasta 3 usuarios por empresa</li>
+          <li>Ahorra frente a contratar los módulos por separado</li>
+        </ul>
+        <a href="#contacto" class="pricing-cta">Solicitar este plan</a>
+      </div>
+    </div>
+    <p class="pricing-note">Precios en dólares (USD), más IVA. Facturación mensual, sin permanencia mínima.</p>
+
+    <div class="modules-wrap">
+      <h3>¿Prefieres armar tu propio combo?</h3>
+      <p class="modules-sub">Contrata solo los módulos que tu empresa necesita.</p>
+      <table class="modules-table">
+        <thead>
+          <tr>
+            <th>Módulo</th>
+            <th>Descripción</th>
+            <th style="text-align:right;">Precio mensual + IVA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="module-name">Contabilidad</td>
+            <td class="module-desc">Sistema contable completo con captura de DTE, partidas y elaboración automatizada de estados financieros y libros contables.</td>
+            <td class="module-price">$50.00</td>
+          </tr>
+          <tr>
+            <td class="module-name">Facturador</td>
+            <td class="module-desc">Facturador de Documentos Tributarios Electrónicos, con opción de exportar.</td>
+            <td class="module-price">$40.00</td>
+          </tr>
+          <tr>
+            <td class="module-name">Obligaciones</td>
+            <td class="module-desc">Control de declaraciones e informes, renovaciones, depósitos y más.</td>
+            <td class="module-price">$20.00</td>
+          </tr>
+          <tr>
+            <td class="module-name">Tesorería</td>
+            <td class="module-desc">Control de cobros y pagos, con conciliación automatizada de estado de cuenta.</td>
+            <td class="module-price">$40.00</td>
+          </tr>
+          <tr>
+            <td class="module-name">Planillas</td>
+            <td class="module-desc">Módulo de planillas: sueldos, honorarios, dividendos y más.</td>
+            <td class="module-price">$40.00</td>
+          </tr>
+          <tr>
+            <td class="module-name">Archivo documental</td>
+            <td class="module-desc">Drive para almacenar tus documentos digitales.</td>
+            <td class="module-price">$10.00</td>
+          </tr>
+          <tr>
+            <td class="module-name">Proyectos</td>
+            <td class="module-desc">Lleva el control de los costos de tus proyectos desde archivos digitales.</td>
+            <td class="module-price">$25.00</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </section>
@@ -757,19 +964,27 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="servicio">Servicio de interés</label>
+            <label for="servicio">Servicio o producto de interés</label>
             <select id="servicio" name="servicio">
-              <option value="">Selecciona un servicio...</option>
-              <option>Contabilidad</option>
-              <option>Tributario / Impuestos</option>
-              <option>Auditoría</option>
-              <option>Consultoría</option>
-              <option>Asesoría Financiera</option>
-              <option>Control Interno</option>
-              <option>Cumplimiento (Compliance)</option>
-              <option>Gestión de Riesgos</option>
-              <option>Soluciones Tecnológicas</option>
-              <option>Otro / Varios servicios</option>
+              <option value="">Selecciona una opción...</option>
+              <optgroup label="Servicios profesionales">
+                <option>Contabilidad</option>
+                <option>Tributario / Impuestos</option>
+                <option>Auditoría</option>
+                <option>Consultoría</option>
+                <option>Asesoría Financiera</option>
+                <option>Control Interno</option>
+                <option>Cumplimiento (Compliance)</option>
+                <option>Gestión de Riesgos</option>
+                <option>Soluciones Tecnológicas</option>
+                <option>Otro / Varios servicios</option>
+              </optgroup>
+              <optgroup label="Productos (software)">
+                <option>Plan Tributario ($75/mes)</option>
+                <option>Plan Solo Contabilidad ($85/mes)</option>
+                <option>Plan Full · ERP Completo ($125/mes)</option>
+                <option>Módulos individuales a la carta</option>
+              </optgroup>
             </select>
           </div>
           <div class="form-group">
@@ -793,6 +1008,7 @@
     <p>© 2026 ACTIBOK · San Salvador, El Salvador · info@actibok.com</p>
     <div class="footer-links">
       <a href="#servicios">Servicios</a>
+      <a href="#productos">Productos</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto">Contacto</a>
     </div>
