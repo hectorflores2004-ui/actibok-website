@@ -50,15 +50,15 @@
       height: 64px;
     }
     .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 28px;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: 3px;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 0.4rem 0.9rem;
+      border-radius: 10px;
       text-decoration: none;
-      text-shadow: 0 0 18px rgba(29,185,122,0.35);
+      box-shadow: 0 0 18px rgba(29,185,122,0.2);
     }
-    .logo span { color: var(--verde); }
+    .logo img { display: block; height: 30px; width: auto; }
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -582,14 +582,14 @@
       gap: 1rem;
     }
     .footer-logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 20px;
-      font-weight: 900;
-      color: #fff;
-      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 0.3rem 0.75rem;
+      border-radius: 8px;
       text-decoration: none;
     }
-    .footer-logo span { color: var(--verde); }
+    .footer-logo img { display: block; height: 20px; width: auto; }
     footer p { font-size: 13px; }
     .footer-links { display: flex; gap: 1.5rem; }
     .footer-links a {
@@ -627,7 +627,7 @@
 <!-- NAVBAR -->
 <header>
   <nav>
-    <a href="#" class="logo">ACTI<span>BOK</span></a>
+    <a href="#" class="logo"><img src="assets/logo-actibok.png" alt="ACTIBOK" /></a>
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#productos">Productos</a></li>
@@ -1005,7 +1005,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <a href="#" class="footer-logo">ACTI<span>BOK</span></a>
+    <a href="#" class="footer-logo"><img src="assets/logo-actibok.png" alt="ACTIBOK" /></a>
     <p>© 2026 ACTIBOK · San Salvador, El Salvador · actiboknegocios@gmail.com</p>
     <div class="footer-links">
       <a href="#servicios">Servicios</a>
