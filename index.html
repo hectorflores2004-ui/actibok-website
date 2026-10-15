@@ -410,6 +410,92 @@
     .value-item h4 { font-size: 14px; font-weight: 600; color: var(--azul); margin-bottom: 0.2rem; }
     .value-item p { font-size: 13px; color: var(--texto-sec); }
 
+    /* ── SISTEMAPOS (restaurantes) ── */
+    #sistemapos { background: var(--gris-bg); }
+    .pos-intro {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    @media (max-width: 860px) { .pos-intro { grid-template-columns: 1fr; gap: 1.75rem; } }
+    .pos-intro-text p { font-size: 15px; color: var(--texto-sec); margin-bottom: 1rem; }
+    .pos-intro-text strong { color: var(--azul); }
+    .pos-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+    .pos-badges span {
+      background: var(--verde-claro);
+      color: #0f7a51;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+    }
+    .pos-shot {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 18px 40px rgba(13,43,78,0.25);
+      border: 1px solid var(--borde);
+    }
+    .pos-subtitle { font-size: 18px; font-weight: 700; color: var(--azul); margin: 3.25rem 0 0.25rem; }
+    .pos-subtext { font-size: 14px; color: var(--texto-sec); }
+    .pos-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      counter-reset: paso;
+    }
+    .pos-step {
+      background: #fff;
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 1.4rem 1.25rem;
+      position: relative;
+    }
+    .pos-step::before {
+      counter-increment: paso;
+      content: counter(paso);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--verde);
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .pos-step h4 { font-size: 15px; color: var(--azul); margin-bottom: 0.3rem; }
+    .pos-step p { font-size: 13px; color: var(--texto-sec); }
+    #sistemapos .services-grid { margin-top: 1.5rem; }
+    #sistemapos .service-card { background: #fff; }
+    .pos-equipo {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      background: var(--azul);
+      color: #fff;
+      border-radius: 14px;
+      padding: 2rem;
+      margin-top: 3.25rem;
+    }
+    @media (max-width: 860px) { .pos-equipo { grid-template-columns: 1fr; } }
+    .pos-equipo h3 { font-size: 18px; margin-bottom: 0.5rem; }
+    .pos-equipo p { font-size: 14px; color: rgba(255,255,255,0.75); }
+    .pos-equipo ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; margin-top: 1rem; }
+    .pos-equipo li { font-size: 13.5px; color: rgba(255,255,255,0.85); padding-left: 1.4rem; position: relative; }
+    .pos-equipo li::before { content: '✓'; position: absolute; left: 0; color: var(--verde); font-weight: 700; }
+    .pos-equipo img { width: 100%; height: auto; border-radius: 10px; display: block; }
+    #sistemapos .pricing-grid { margin-top: 1.5rem; }
+    .pos-ctas { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .pos-ctas .btn-outline { color: var(--azul); border-color: var(--azul); }
+    .pos-ctas .btn-outline:hover { color: var(--azul); }
+
     /* ── TECNOLOGÍA ── */
     #tecnologia {
       background: var(--azul);
@@ -631,6 +717,7 @@
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#productos">Productos</a></li>
+      <li><a href="#sistemapos">Restaurantes</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#tecnologia">Tecnología</a></li>
       <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
@@ -642,6 +729,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#servicios" onclick="toggleMenu()">Servicios</a>
     <a href="#productos" onclick="toggleMenu()">Productos</a>
+    <a href="#sistemapos" onclick="toggleMenu()">Restaurantes (SistemaPos)</a>
     <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
     <a href="#tecnologia" onclick="toggleMenu()">Tecnología</a>
     <a href="#contacto" onclick="toggleMenu()">Contacto</a>
@@ -825,6 +913,179 @@
   </div>
 </section>
 
+<!-- SISTEMAPOS: PUNTO DE VENTA PARA RESTAURANTES -->
+<section id="sistemapos">
+  <div class="container">
+    <div class="section-label"><span>Para restaurantes</span></div>
+    <h2 class="section-title">SistemaPos: punto de venta para restaurantes</h2>
+    <p class="section-sub">Mesas, comandas a cocina, cobro y factura electrónica en un solo sistema en la nube, hecho para restaurantes de El Salvador.</p>
+
+    <div class="pos-intro">
+      <div class="pos-intro-text">
+        <p>Sus meseros toman el pedido en la tablet o el celular y llega al instante a la cocina, la parrilla o el bar. Al cobrar, el sistema emite la <strong>factura electrónica</strong>, la firma y la envía a Hacienda, y el ticket sale con su código QR.</p>
+        <p>Usted ve en todo momento cuánto vende, qué platos dejan más, cuánto inventario se gasta y cómo cierra cada caja, desde cualquier lugar.</p>
+        <div class="pos-badges">
+          <span>Usuarios ilimitados</span>
+          <span>Equipos ilimitados</span>
+          <span>Facturas electrónicas ilimitadas</span>
+          <span>Sin permanencia mínima</span>
+        </div>
+      </div>
+      <img class="pos-shot" src="assets/sistemapos-pedido.jpg" alt="Pantalla de pedido de SistemaPos con el menú y la cuenta de la mesa" />
+    </div>
+
+    <h3 class="pos-subtitle">Así funciona un servicio</h3>
+    <p class="pos-subtext">Del pedido a la factura, sin papel y sin pasos extra.</p>
+    <div class="pos-steps">
+      <div class="pos-step">
+        <h4>Se abre la mesa</h4>
+        <p>El plano del salón muestra qué mesas están libres, ocupadas o pidieron la cuenta.</p>
+      </div>
+      <div class="pos-step">
+        <h4>El mesero toma el pedido</h4>
+        <p>En la tablet o el celular, por comensal y por tiempo, con término de la carne, acompañamientos y notas.</p>
+      </div>
+      <div class="pos-step">
+        <h4>La cocina lo recibe</h4>
+        <p>Cada estación ve solo sus platos en pantalla o en comanda impresa, con el tiempo de espera a la vista.</p>
+      </div>
+      <div class="pos-step">
+        <h4>Se cobra y se factura</h4>
+        <p>Efectivo, tarjeta, transferencia o crédito; cuenta dividida y propina. La factura va a Hacienda al momento.</p>
+      </div>
+    </div>
+
+    <h3 class="pos-subtitle">Todo lo que incluye</h3>
+    <p class="pos-subtext">Las funciones que un restaurante necesita para operar y tener el control.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🍽️</div>
+        <h3>Mesas y pedidos</h3>
+        <p>Plano de mesas en vivo, órdenes para llevar, mostrador y delivery, cambio de mesa y precuenta.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔥</div>
+        <h3>Pantalla de cocina</h3>
+        <p>Comandas por estación (cocina, parrilla, bar, pupusería), tiempos de preparación y productos agotados.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧾</div>
+        <h3>Factura electrónica</h3>
+        <p>Factura, crédito fiscal, nota de crédito y sujeto excluido, con contingencia automática, invalidaciones y retención del 1 %.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💵</div>
+        <h3>Caja bajo control</h3>
+        <p>Apertura con fondo, entradas y salidas autorizadas, corte X y corte Z con arqueo ciego.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📦</div>
+        <h3>Inventario por receta</h3>
+        <p>Cada venta descuenta los insumos de su receta. Compras, kardex, conteo físico, costo y margen por plato.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>Créditos y abonos</h3>
+        <p>Ventas al crédito con plazo y límite por cliente, abonos y antigüedad de saldos.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎉</div>
+        <h3>Promociones y clientes frecuentes</h3>
+        <p>2x1, 3x2, descuentos y horario feliz que se aplican solos, y puntos por consumo canjeables.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📊</div>
+        <h3>Reportes para decidir</h3>
+        <p>Ventas por hora, día, mesero y canal, análisis 80/20 de productos, propinas y control de anulaciones y descuentos.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📶</div>
+        <h3>Sigue vendiendo sin internet</h3>
+        <p>Si se cae la conexión, la caja sigue cobrando e imprime un comprobante; todo se sincroniza solo al volver.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🖨️</div>
+        <h3>Impresoras y gaveta</h3>
+        <p>Tickets con QR, comandas por estación y apertura de gaveta en impresoras térmicas de red.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">☁️</div>
+        <h3>Respaldo diario en la nube</h3>
+        <p>Cada factura (JSON y PDF) y una copia completa de la información se guardan todos los días.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔐</div>
+        <h3>Seguridad por usuario</h3>
+        <p>PIN para cada persona, permisos por rol, autorización del gerente para anulaciones y bitácora de cambios.</p>
+      </div>
+    </div>
+
+    <div class="pos-equipo">
+      <div>
+        <h3>Funciona con equipos que ya conoce</h3>
+        <p>No necesita servidor en el local: se usa desde el navegador.</p>
+        <ul>
+          <li>Caja: computadora o pantalla táctil con impresora térmica de red y gaveta.</li>
+          <li>Meseros: tablets o celulares Android.</li>
+          <li>Cocina: tablet en la pared o impresora de comandas.</li>
+          <li>Le asesoramos para cotizar el equipo y lo dejamos funcionando en un día.</li>
+        </ul>
+      </div>
+      <img src="assets/sistemapos-cocina.jpg" alt="Pantalla de cocina de SistemaPos con comandas por estación" />
+    </div>
+
+    <h3 class="pos-subtitle">Planes de SistemaPos</h3>
+    <p class="pos-subtext">Un solo precio mensual, sin cobrar por equipo ni por factura.</p>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Pequeño / Pupusería</h3>
+        <p class="pricing-tagline">Para negocios que solo necesitan vender y facturar.</p>
+        <div class="pricing-price"><strong>$39.99</strong><span>/mes + IVA</span></div>
+        <ul class="pricing-features">
+          <li>Mesas, pedidos y pantalla de cocina</li>
+          <li>Cobro, caja y cortes</li>
+          <li>Factura electrónica ilimitada</li>
+          <li>Reportes básicos de ventas</li>
+        </ul>
+        <a href="#contacto" class="pricing-cta" data-plan="SistemaPos Pequeño / Pupusería ($39.99/mes)">Solicitar este plan</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Más completo</div>
+        <h3>SistemaPos Restaurante</h3>
+        <p class="pricing-tagline">Todo el sistema, sin límites.</p>
+        <div class="pricing-price"><strong>$59.99</strong><span>/mes + IVA</span></div>
+        <ul class="pricing-features">
+          <li>Todo lo del plan Pequeño</li>
+          <li>Inventario por receta, costos y márgenes</li>
+          <li>Créditos, promociones y clientes frecuentes</li>
+          <li>Reportes completos y análisis 80/20</li>
+          <li>Usuarios, equipos y facturas ilimitados</li>
+        </ul>
+        <a href="#contacto" class="pricing-cta" data-plan="SistemaPos Restaurante ($59.99/mes)">Solicitar este plan</a>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Sucursal adicional</h3>
+        <p class="pricing-tagline">Para cada local extra del mismo negocio.</p>
+        <div class="pricing-price"><strong>$29.99</strong><span>/mes + IVA</span></div>
+        <ul class="pricing-features">
+          <li>Su propia caja, cocina y facturación</li>
+          <li>Mismo plan que el local principal</li>
+          <li>Reportes de cada sucursal</li>
+        </ul>
+        <a href="#contacto" class="pricing-cta" data-plan="SistemaPos Sucursal adicional ($29.99/mes)">Solicitar este plan</a>
+      </div>
+    </div>
+    <p class="pricing-note">Precios en dólares (USD), más IVA. Pago mensual por transferencia o depósito, sin permanencia mínima. El equipo (computadora, tablets, impresoras) no está incluido.</p>
+
+    <div class="pos-ctas">
+      <a href="#contacto" class="btn-primary" data-plan="Demostración de SistemaPos">Solicitar una demostración</a>
+      <a href="https://wa.me/50375483202?text=Hola,%20me%20interesa%20SistemaPos%20para%20mi%20restaurante" class="btn-outline" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>
+
 <!-- NOSOTROS -->
 <section id="nosotros">
   <div class="container">
@@ -986,6 +1247,12 @@
                 <option>Plan Full · ERP Completo ($125/mes)</option>
                 <option>Módulos individuales a la carta</option>
               </optgroup>
+              <optgroup label="SistemaPos (restaurantes)">
+                <option>SistemaPos Pequeño / Pupusería ($39.99/mes)</option>
+                <option>SistemaPos Restaurante ($59.99/mes)</option>
+                <option>SistemaPos Sucursal adicional ($29.99/mes)</option>
+                <option>Demostración de SistemaPos</option>
+              </optgroup>
             </select>
           </div>
           <div class="form-group">
@@ -1010,6 +1277,7 @@
     <div class="footer-links">
       <a href="#servicios">Servicios</a>
       <a href="#productos">Productos</a>
+      <a href="#sistemapos">Restaurantes</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto">Contacto</a>
     </div>
@@ -1028,6 +1296,14 @@
   function toggleMenu() {
     document.getElementById('mobileMenu').classList.toggle('open');
   }
+
+  // «Solicitar este plan» de SistemaPos: deja elegido el plan en el formulario
+  document.querySelectorAll('[data-plan]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var select = document.getElementById('servicio');
+      if (select) select.value = link.getAttribute('data-plan');
+    });
+  });
 
   function submitForm(e) {
     e.preventDefault();
