@@ -411,7 +411,7 @@
     .value-item p { font-size: 13px; color: var(--texto-sec); }
 
     /* ── SISTEMAPOS (restaurantes) ── */
-    #sistemapos { background: var(--gris-bg); }
+    #actibokpos { background: var(--gris-bg); }
     .pos-intro {
       display: grid;
       grid-template-columns: 1fr 1.15fr;
@@ -471,8 +471,8 @@
     }
     .pos-step h4 { font-size: 15px; color: var(--azul); margin-bottom: 0.3rem; }
     .pos-step p { font-size: 13px; color: var(--texto-sec); }
-    #sistemapos .services-grid { margin-top: 1.5rem; }
-    #sistemapos .service-card { background: #fff; }
+    #actibokpos .services-grid { margin-top: 1.5rem; }
+    #actibokpos .service-card { background: #fff; }
     .pos-equipo {
       display: grid;
       grid-template-columns: 1.2fr 1fr;
@@ -491,7 +491,7 @@
     .pos-equipo li { font-size: 13.5px; color: rgba(255,255,255,0.85); padding-left: 1.4rem; position: relative; }
     .pos-equipo li::before { content: '✓'; position: absolute; left: 0; color: var(--verde); font-weight: 700; }
     .pos-equipo img { width: 100%; height: auto; border-radius: 10px; display: block; }
-    #sistemapos .pricing-grid { margin-top: 1.5rem; }
+    #actibokpos .pricing-grid { margin-top: 1.5rem; }
     .pos-ctas { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
     .pos-ctas .btn-outline { color: var(--azul); border-color: var(--azul); }
     .pos-ctas .btn-outline:hover { color: var(--azul); }
@@ -717,7 +717,7 @@
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#productos">Productos</a></li>
-      <li><a href="#sistemapos">Restaurantes</a></li>
+      <li><a href="#actibokpos">Restaurantes</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#tecnologia">Tecnología</a></li>
       <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
@@ -729,7 +729,7 @@
   <div class="mobile-menu" id="mobileMenu">
     <a href="#servicios" onclick="toggleMenu()">Servicios</a>
     <a href="#productos" onclick="toggleMenu()">Productos</a>
-    <a href="#sistemapos" onclick="toggleMenu()">Restaurantes (SistemaPos)</a>
+    <a href="#actibokpos" onclick="toggleMenu()">Restaurantes (ActibokPos)</a>
     <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
     <a href="#tecnologia" onclick="toggleMenu()">Tecnología</a>
     <a href="#contacto" onclick="toggleMenu()">Contacto</a>
@@ -914,10 +914,11 @@
 </section>
 
 <!-- SISTEMAPOS: PUNTO DE VENTA PARA RESTAURANTES -->
-<section id="sistemapos">
+<section id="actibokpos">
+  <span id="sistemapos" aria-hidden="true"></span>
   <div class="container">
     <div class="section-label"><span>Para restaurantes</span></div>
-    <h2 class="section-title">SistemaPos: punto de venta para restaurantes</h2>
+    <h2 class="section-title">ActibokPos: punto de venta para restaurantes</h2>
     <p class="section-sub">Mesas, comandas a cocina, cobro y factura electrónica en un solo sistema en la nube, hecho para restaurantes de El Salvador.</p>
 
     <div class="pos-intro">
@@ -931,7 +932,7 @@
           <span>Sin permanencia mínima</span>
         </div>
       </div>
-      <img class="pos-shot" src="assets/sistemapos-pedido.jpg" alt="Pantalla de pedido de SistemaPos con el menú y la cuenta de la mesa" />
+      <img class="pos-shot" src="assets/actibokpos-pedido.jpg" alt="Pantalla de pedido de ActibokPos con el menú y la cuenta de la mesa" />
     </div>
 
     <h3 class="pos-subtitle">Así funciona un servicio</h3>
@@ -1031,10 +1032,10 @@
           <li>Le asesoramos para cotizar el equipo y lo dejamos funcionando en un día.</li>
         </ul>
       </div>
-      <img src="assets/sistemapos-cocina.jpg" alt="Pantalla de cocina de SistemaPos con comandas por estación" />
+      <img src="assets/actibokpos-cocina.jpg" alt="Pantalla de cocina de ActibokPos con comandas por estación" />
     </div>
 
-    <h3 class="pos-subtitle">Planes de SistemaPos</h3>
+    <h3 class="pos-subtitle">Planes de ActibokPos</h3>
     <p class="pos-subtext">Un solo precio mensual, sin cobrar por equipo ni por factura.</p>
     <div class="pricing-grid">
       <div class="pricing-card">
@@ -1047,12 +1048,12 @@
           <li>Factura electrónica ilimitada</li>
           <li>Reportes básicos de ventas</li>
         </ul>
-        <a href="#contacto" class="pricing-cta" data-plan="SistemaPos Pequeño / Pupusería ($39.99/mes)">Solicitar este plan</a>
+        <a href="#contacto" class="pricing-cta" data-plan="ActibokPos Pequeño / Pupusería ($39.99/mes)">Solicitar este plan</a>
       </div>
 
       <div class="pricing-card featured">
         <div class="pricing-badge">Más completo</div>
-        <h3>SistemaPos Restaurante</h3>
+        <h3>ActibokPos Restaurante</h3>
         <p class="pricing-tagline">Todo el sistema, sin límites.</p>
         <div class="pricing-price"><strong>$59.99</strong><span>/mes + IVA</span></div>
         <ul class="pricing-features">
@@ -1062,7 +1063,7 @@
           <li>Reportes completos y análisis 80/20</li>
           <li>Usuarios, equipos y facturas ilimitados</li>
         </ul>
-        <a href="#contacto" class="pricing-cta" data-plan="SistemaPos Restaurante ($59.99/mes)">Solicitar este plan</a>
+        <a href="#contacto" class="pricing-cta" data-plan="ActibokPos Restaurante ($59.99/mes)">Solicitar este plan</a>
       </div>
 
       <div class="pricing-card">
@@ -1074,14 +1075,14 @@
           <li>Mismo plan que el local principal</li>
           <li>Reportes de cada sucursal</li>
         </ul>
-        <a href="#contacto" class="pricing-cta" data-plan="SistemaPos Sucursal adicional ($29.99/mes)">Solicitar este plan</a>
+        <a href="#contacto" class="pricing-cta" data-plan="ActibokPos Sucursal adicional ($29.99/mes)">Solicitar este plan</a>
       </div>
     </div>
     <p class="pricing-note">Precios en dólares (USD), más IVA. Pago mensual por transferencia o depósito, sin permanencia mínima. El equipo (computadora, tablets, impresoras) no está incluido.</p>
 
     <div class="pos-ctas">
-      <a href="#contacto" class="btn-primary" data-plan="Demostración de SistemaPos">Solicitar una demostración</a>
-      <a href="https://wa.me/50375483202?text=Hola,%20me%20interesa%20SistemaPos%20para%20mi%20restaurante" class="btn-outline" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a href="#contacto" class="btn-primary" data-plan="Demostración de ActibokPos">Solicitar una demostración</a>
+      <a href="https://wa.me/50375483202?text=Hola,%20me%20interesa%20ActibokPos%20para%20mi%20restaurante" class="btn-outline" target="_blank" rel="noopener">Escribir por WhatsApp</a>
     </div>
   </div>
 </section>
@@ -1247,11 +1248,11 @@
                 <option>Plan Full · ERP Completo ($125/mes)</option>
                 <option>Módulos individuales a la carta</option>
               </optgroup>
-              <optgroup label="SistemaPos (restaurantes)">
-                <option>SistemaPos Pequeño / Pupusería ($39.99/mes)</option>
-                <option>SistemaPos Restaurante ($59.99/mes)</option>
-                <option>SistemaPos Sucursal adicional ($29.99/mes)</option>
-                <option>Demostración de SistemaPos</option>
+              <optgroup label="ActibokPos (restaurantes)">
+                <option>ActibokPos Pequeño / Pupusería ($39.99/mes)</option>
+                <option>ActibokPos Restaurante ($59.99/mes)</option>
+                <option>ActibokPos Sucursal adicional ($29.99/mes)</option>
+                <option>Demostración de ActibokPos</option>
               </optgroup>
             </select>
           </div>
@@ -1277,7 +1278,7 @@
     <div class="footer-links">
       <a href="#servicios">Servicios</a>
       <a href="#productos">Productos</a>
-      <a href="#sistemapos">Restaurantes</a>
+      <a href="#actibokpos">Restaurantes</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#contacto">Contacto</a>
     </div>
@@ -1297,7 +1298,7 @@
     document.getElementById('mobileMenu').classList.toggle('open');
   }
 
-  // «Solicitar este plan» de SistemaPos: deja elegido el plan en el formulario
+  // «Solicitar este plan» de ActibokPos: deja elegido el plan en el formulario
   document.querySelectorAll('[data-plan]').forEach(function (link) {
     link.addEventListener('click', function () {
       var select = document.getElementById('servicio');
