@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad — ActibokPos</title>
+  <meta name="description" content="Cómo ActibokPos trata los datos de ventas, clientes y la cuenta de Gmail conectada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --azul: #0D2B4E; --verde: #1DB97A; --texto: #1A1A2E; --texto-sec: #5A6A7E; --borde: #DDE3ED; }
+    body { font-family: 'Inter', sans-serif; color: var(--texto); background: #F7F9FC; line-height: 1.65; }
+    header { background: var(--azul); }
+    header .bar { max-width: 820px; margin: 0 auto; padding: 0 1rem; height: 64px; display: flex; align-items: center; }
+    header a { display: flex; background: #fff; padding: 0.4rem 0.9rem; border-radius: 10px; }
+    header img { height: 32px; }
+    main { padding: 2.5rem 1rem 4rem; }
+    article { max-width: 820px; margin: 0 auto; background: #fff; border: 1px solid var(--borde); border-radius: 16px; padding: 2.5rem clamp(1.25rem, 5vw, 3rem); }
+    .eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--verde); }
+    h1 { font-size: 1.9rem; margin-top: 0.4rem; color: var(--azul); }
+    .fecha { font-size: 0.875rem; color: var(--texto-sec); margin-top: 0.4rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--borde); }
+    h2 { font-size: 1.1rem; color: var(--azul); margin-top: 2.2rem; }
+    p, li { font-size: 0.97rem; color: #33405A; }
+    p { margin-top: 0.75rem; }
+    ul { margin-top: 0.75rem; padding-left: 1.3rem; }
+    li { margin-top: 0.4rem; }
+    strong { color: var(--texto); font-weight: 600; }
+    a { color: var(--azul); }
+    footer { text-align: center; font-size: 0.85rem; color: var(--texto-sec); padding: 0 1rem 2.5rem; }
+  </style>
+</head>
+<body>
+<header><div class="bar"><a href="/"><img src="assets/logo-actibok.png" alt="ACTIBOK" /></a></div></header>
+<main>
+<article>
+  <p class="eyebrow">ActibokPos</p>
+  <h1>Política de Privacidad</h1>
+  <p class="fecha">Última actualización: 23 de octubre de 2026</p>
+
+  <p>ActibokPos es un sistema de punto de venta y facturación electrónica para restaurantes y negocios en El Salvador, desarrollado por ACTIBOK. Este documento explica qué datos trata el sistema, para qué los usa y con quién los comparte.</p>
+
+  <h2>Quién trata los datos</h2>
+  <p>El responsable del tratamiento es la empresa que contrata y opera ActibokPos. ACTIBOK actúa como proveedor de la plataforma tecnológica que esa empresa utiliza para registrar sus ventas y emitir sus documentos tributarios electrónicos (DTE).</p>
+
+  <h2>Qué datos se tratan</h2>
+  <ul>
+    <li><strong>Datos de clientes y proveedores</strong> que la empresa registra para facturar: nombre o razón social, DUI, NIT, NRC, actividad económica, dirección, teléfono y correo electrónico.</li>
+    <li><strong>Ventas y documentos tributarios electrónicos</strong>: pedidos, cobros, facturas, créditos fiscales, notas y demás DTE, con su detalle de productos, montos e impuestos.</li>
+    <li><strong>Datos de las personas usuarias</strong> del sistema: nombre, correo electrónico, rol y PIN de acceso (guardado de forma no reversible).</li>
+    <li><strong>Cuenta de Gmail conectada</strong>, cuando la empresa decide enviar sus documentos desde su propio correo: la dirección de correo de la cuenta y un permiso de acceso guardado de forma cifrada.</li>
+  </ul>
+
+  <h2>Uso de los datos de Google</h2>
+  <p>La empresa puede conectar voluntariamente una cuenta de Gmail para que ActibokPos envíe por correo, a sus clientes, los documentos tributarios electrónicos emitidos (PDF y JSON). Para ello ActibokPos solicita únicamente:</p>
+  <ul>
+    <li><strong>Enviar correos en su nombre</strong> (<code>gmail.send</code>): se usa solo para enviar los DTE y avisos de invalidación a los clientes de la empresa.</li>
+    <li><strong>Su dirección de correo</strong> (<code>openid</code> y <code>email</code>): para mostrar qué cuenta está conectada.</li>
+  </ul>
+  <p>ActibokPos <strong>no lee, no busca, no modifica ni elimina</strong> ningún correo de la cuenta, no accede a sus contactos y no usa esos datos con fines publicitarios ni para entrenar modelos de inteligencia artificial. El permiso puede retirarse en cualquier momento desde ActibokPos o desde <a href="https://myaccount.google.com/permissions" rel="noopener">la configuración de seguridad de la cuenta de Google</a>.</p>
+  <p>El uso y la transferencia a cualquier otra aplicación de la información recibida de las API de Google por parte de ActibokPos se ajustará a la <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Política de Datos de Usuario de los Servicios de API de Google</a>, incluidos los requisitos de Uso Limitado.</p>
+
+  <h2>Para qué se usan</h2>
+  <p>Los datos se usan exclusivamente para registrar las ventas, emitir y resguardar los documentos tributarios electrónicos, enviarlos a los clientes y llevar los registros que exige la legislación salvadoreña. No se venden ni se ceden a terceros con fines comerciales.</p>
+
+  <h2>Con quién se comparten</h2>
+  <ul>
+    <li><strong>Ministerio de Hacienda de El Salvador</strong>, para transmitir y validar los documentos tributarios electrónicos.</li>
+    <li><strong>Google</strong>, solo para enviar los correos cuando la empresa conecta una cuenta de Gmail.</li>
+    <li><strong>El sistema contable de la empresa</strong>, cuando esta activa la integración con su ERP.</li>
+    <li><strong>Proveedores de infraestructura</strong> de alojamiento, base de datos y respaldos, que procesan los datos siguiendo instrucciones y sin usarlos para fines propios.</li>
+  </ul>
+
+  <h2>Cuánto tiempo se conservan</h2>
+  <p>Los documentos tributarios y registros de ventas se conservan durante los plazos que exige la legislación tributaria salvadoreña. Vencidos esos plazos, la empresa decide su eliminación o archivo.</p>
+
+  <h2>Seguridad</h2>
+  <p>El acceso requiere credenciales individuales y está separado por roles. Las comunicaciones viajan cifradas mediante HTTPS, los datos de cada empresa se guardan separados de los de las demás, y las credenciales sensibles (de Hacienda, del certificado de firma y de Gmail) se almacenan cifradas.</p>
+
+  <h2>Derechos de las personas</h2>
+  <p>Las personas cuyos datos figuran en el sistema pueden pedir el acceso, la corrección o la eliminación de su información, dentro de los límites de las obligaciones legales de conservación tributaria. Las solicitudes se dirigen a la empresa que les emitió el documento o a ACTIBOK en <a href="mailto:actiboknegocios@gmail.com">actiboknegocios@gmail.com</a>.</p>
+
+  <h2>Cambios en esta política</h2>
+  <p>Cualquier cambio se publicará en esta misma dirección, actualizando la fecha del inicio.</p>
+</article>
+</main>
+<footer>© 2026 ACTIBOK · San Salvador, El Salvador · <a href="/privacidad.html">Privacidad</a> · <a href="/terminos.html">Términos</a></footer>
+</body>
+</html>
