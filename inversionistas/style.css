@@ -85,3 +85,26 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 footer a{color:#5be0a8}
 .disclaimer{font-size:12.5px;opacity:.8;margin-top:.6rem;max-width:720px}
 .wa{position:fixed;right:18px;bottom:18px;background:#25D366;color:#fff;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:26px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.3);z-index:90}
+/* inner pages */
+.page-hero{background:linear-gradient(135deg,var(--azul),#163D6E);color:#fff;padding:3.5rem 0 3rem}
+.page-hero h1{color:#fff;font-size:clamp(26px,4vw,40px);margin-bottom:.8rem}
+.page-hero p{color:rgba(255,255,255,.82);max-width:680px;font-size:17px}
+.crumbs{font-size:13px;margin-bottom:1rem;color:rgba(255,255,255,.6)}.crumbs a{color:#5be0a8;text-decoration:none}
+.timeline{display:grid;gap:1.2rem;margin-top:1rem}
+.tl{display:grid;grid-template-columns:48px 1fr;gap:1.2rem}
+.tl .n{width:44px;height:44px;border-radius:50%;background:var(--azul);color:#fff;display:grid;place-items:center;font-weight:700}
+.tl .b{background:#fff;border:1px solid var(--borde);border-radius:14px;padding:1.4rem 1.6rem}
+.tl h3{font-size:18px;margin-bottom:.4rem}.tl p{color:var(--sec);font-size:15px}
+.tl ul{margin:.6rem 0 0 1.1rem;color:var(--sec);font-size:14.5px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--borde);border-radius:12px;overflow:hidden;font-size:15px}
+th,td{text-align:left;padding:.85rem 1rem;border-bottom:1px solid var(--borde);vertical-align:top}
+th{background:var(--azul);color:#fff;font-weight:600}
+td:first-child{font-weight:600;color:var(--azul)}
+details{background:#fff;border:1px solid var(--borde);border-radius:12px;padding:1rem 1.3rem;margin-bottom:.8rem}
+summary{cursor:pointer;font-weight:600;color:var(--azul)}
+details p{margin-top:.7rem;color:var(--sec);font-size:15px}
+.cta-band{background:var(--verde-claro);border-radius:16px;padding:2rem;text-align:center;margin-top:3rem}
+.cta-band h2{font-size:24px;margin-bottom:.5rem}.cta-band p{color:var(--sec);margin-bottom:1.2rem}
+.cta-band .btn{color:#fff}
+.more{display:inline-block;margin-top:1.4rem;color:var(--verde-oscuro);font-weight:600;text-decoration:none}
