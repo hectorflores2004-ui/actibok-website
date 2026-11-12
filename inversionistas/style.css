@@ -108,3 +108,12 @@ details p{margin-top:.7rem;color:var(--sec);font-size:15px}
 .cta-band h2{font-size:24px;margin-bottom:.5rem}.cta-band p{color:var(--sec);margin-bottom:1.2rem}
 .cta-band .btn{color:#fff}
 .more{display:inline-block;margin-top:1.4rem;color:var(--verde-oscuro);font-weight:600;text-decoration:none}
+/* resources */
+.calc{background:#fff;border:1px solid var(--borde);border-radius:14px;padding:1.8rem;display:grid;gap:1rem}
+.calc .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:560px){.calc .row{grid-template-columns:1fr}}
+.res{background:var(--bg);border-radius:10px;padding:1rem 1.2rem;display:grid;gap:.4rem;font-size:15px}
+.res div{display:flex;justify-content:space-between;gap:1rem}
+.res b{color:var(--azul)}
+.res .tot{border-top:1px solid var(--borde);padding-top:.5rem;font-size:17px}
+.dl{display:flex;gap:1rem;align-items:center;justify-content:space-between;flex-wrap:wrap}
