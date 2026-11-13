@@ -79,6 +79,9 @@
       border-radius: 6px;
       font-weight: 500 !important;
     }
+    .nav-links a.nav-invest { color: var(--verde); font-weight: 500; }
+    .invest-strip { background: var(--verde-claro); border-bottom: 1px solid var(--borde); padding: 1rem 1.5rem; text-align: center; font-size: 15px; color: var(--azul); }
+    .invest-strip a { color: var(--azul-medio); font-weight: 600; margin-left: .4rem; }
     .nav-cta:hover { background: #17a36a !important; color: #fff !important; }
 
     /* hamburger */
@@ -677,7 +680,7 @@
     }
     .footer-logo img { display: block; height: 20px; width: auto; }
     footer p { font-size: 13px; }
-    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.5rem; }
     .footer-links a {
       color: rgba(255,255,255,0.55);
       text-decoration: none;
@@ -720,6 +723,7 @@
       <li><a href="#actibokpos">Restaurantes</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#tecnologia">Tecnología</a></li>
+      <li><a href="https://actibokinvest.com/" class="nav-invest" title="Inversionistas / Investors">Inversionistas</a></li>
       <li><a href="#contacto" class="nav-cta">Contáctanos</a></li>
     </ul>
     <div class="hamburger" onclick="toggleMenu()" aria-label="Menú" role="button">
@@ -732,6 +736,7 @@
     <a href="#actibokpos" onclick="toggleMenu()">Restaurantes (ActibokPos)</a>
     <a href="#nosotros" onclick="toggleMenu()">Nosotros</a>
     <a href="#tecnologia" onclick="toggleMenu()">Tecnología</a>
+    <a href="https://actibokinvest.com/">Inversionistas / Investors</a>
     <a href="#contacto" onclick="toggleMenu()">Contacto</a>
   </div>
 </header>
@@ -755,7 +760,9 @@
 </section>
 
 <!-- SERVICIOS -->
-<section id="servicios">
+<div class="invest-strip">¿Invierte o planea invertir en El Salvador? <a href="https://actibokinvest.com/es/">Conozca ACTIBOK Invest →</a> <span style="opacity:.7">·</span> <a href="https://actibokinvest.com/en/">Investing in El Salvador? See ACTIBOK Invest →</a></div>
+
+  <section id="servicios">
   <div class="container">
     <div class="section-label"><span>Lo que hacemos</span></div>
     <h2 class="section-title">Nuestros servicios</h2>
@@ -1286,6 +1293,7 @@
       <a href="#productos">Productos</a>
       <a href="#actibokpos">Restaurantes</a>
       <a href="#nosotros">Nosotros</a>
+      <a href="https://actibokinvest.com/">Inversionistas / Investors</a>
       <a href="#contacto">Contacto</a>
       <a href="privacidad.html">Privacidad</a>
       <a href="terminos.html">Términos</a>
